@@ -1,8 +1,16 @@
-public class Calculator
+/**
+ * APCS Problem Set 2-A
+ *
+ * Victor Yao
+ * 9/29/2021
+ **/
+
+class Calculator
 {   
     //store arguments in arrays
     int[] qdrtcArgs = {1, 5, 6},
-          coords = {0, 0, 2, 3},
+          coords1 = {0, 0, 2, 3},
+          coords2 = {0, 0, 2, 3},
           aSrsArgs = {5, 1, 1},
           gSrsArgs = {3, 3, 2};
           
@@ -10,23 +18,23 @@ public class Calculator
     {
         /** calculate results and store in variables **/
         
-        double slope = slope(coords),
+        double slope = slope(coords1),
                aSrs = arithmeticSeries(aSrsArgs),
                gSrs = geometricSeries(gSrsArgs);
                
         double[] qdrtcRoots = quadratic(qdrtcArgs),
-                 midpointCoords = midpoint(coords);
+                 midpointCoords = midpoint(coords2);
         
-        /** print calculations in expected format **/
+        /** print results in expected format **/
         
         System.out.println("QUADRATIC FORMULA\n" +
                            "The solutions for " + qdrtcArgs[0] + "x^2 + " + qdrtcArgs[1] + "x + " + qdrtcArgs[2] +" are " + qdrtcRoots[0] + " and " + qdrtcRoots[1] + ".\n\n" +
                            
                            "SLOPE FORMULA\n" +
-                           "A line connecting the points (" + coords[0] + ", " + coords[1] + ") and (" + coords[2] + ", " + coords[3] + ") has a slope of " + slope + "\n\n" +
+                           "A line connecting the points (" + coords1[0] + ", " + coords1[1] + ") and (" + coords1[2] + ", " + coords1[3] + ") has a slope of " + slope + "\n\n" +
                            
                            "MIDPOINT FORMULA\n" +
-                           "The midpoint between (" + coords[0] + ", " + coords[1] + ") and (" + coords[2] + ", " + coords[3] + ") is (" + midpointCoords[0] + ", " + midpointCoords[1] + ")\n\n" +
+                           "The midpoint between (" + coords2[0] + ", " + coords2[1] + ") and (" + coords2[2] + ", " + coords2[3] + ") is (" + midpointCoords[0] + ", " + midpointCoords[1] + ")\n\n" +
                            
                            "SUM OF AN ARITHMETIC SERIES\n" + 
                            "The sum of the first " + aSrsArgs[0] + " terms of an arithmetic series that starts with " + aSrsArgs[1] + "\n" +
@@ -78,7 +86,7 @@ public class Calculator
         //the geometric series is Σ(g * r^(n - 1)), where:
         //                       n=1
         double k = args[0], g = args[1], r = args[2];
-        //apply the geometric series formula to determine the sum        
+        //apply the geometric series formula to determine and return the sum        
         return g * (Math.pow(r, k) - 1) / (r - 1);
     }
 }
